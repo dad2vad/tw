@@ -1,70 +1,14 @@
-![tw-classed](https://raw.githubusercontent.com/sannajammeh/tw-classed/master/tw-classed.jpg)
+# example-monorepo-pnpm
 
-# TW Classed
+An example repository demonstrating how to set up a pnpm monorepo.
 
-Monorepo of the TW Classed project. Consists of Core and React packages.
+`first` is the public package that is external-facing.
 
-[Full Documentation](https://tw-classed.vercel.app)
+`second` is the internal package that is not published, but has types and functions used by `first`.
 
-## React
-
-The react package is a wrapper around the core package that provides an easy to way to create classed components. See the [React Docs](https://tw-classed.vercel.app)
-
-```tsx
-// Button.tsx
-import { classed } from "@tw-classed/react";
-
-const Button = classed.button("px-4 py-2", {
-  variants: {
-    color: {
-      primary: "bg-blue-500 text-white",
-      secondary: "bg-gray-500 text-white",
-    },
-  },
-});
-
-// In your App
-
-const App = () => {
-  return (
-    <>
-      <Button color="primary">Primary</Button>
-      <Button color="secondary">Secondary</Button>
-    </>
-  );
-};
-```
-
-
-## Core
-
-The core package is a library that provides a set of functions to help you build your own classed components.
-
-See the [Core Docs](https://tw-classed.vercel.app/core/Introduction)
-
-```ts
-import { classed } from "@tw-classed/core";
-
-const button = classed("px-4 py-2", {
-  variants: {
-    color: {
-      primary: "bg-blue-500 text-white",
-      secondary: "bg-gray-500 text-white",
-    },
-  },
-});
-
-// In your template
-const Button = document.createElement("button");
-Button.className = button({ color: "primary" });
-
-// Or with a framework (Like lit-html)
-const Button = () => html`<button class="${button({ color: "primary" })}" />`;
-```
-
-## License
-
-MIT
-
-#### Discord community
-![Discord Banner 2](https://discordapp.com/api/guilds/1049812722319118416/widget.png?style=banner2)
+ The repository shows how to build the package in a way that allows exporting types and source of `first` without
+ having the reference on `second` which will not be published.
+ 
+ Note that after building, `first/dist/lib.js` does not contain a reference to `foo` as it is not important.
+ This demonstrates how this setup allows importing types from `second` without bloating the bundle size of `first`.
+ 

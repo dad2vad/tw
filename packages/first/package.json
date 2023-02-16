@@ -1,0 +1,21 @@
+{
+  "name": "@o6/first",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsup src --target esnext --dts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "@o6/second": "workspace:*"
+  },
+  
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "lib": [
+            "esnext"
+        ],
+        "declaration": true,
+        "declarationDir": "dist",
+        "module": "esnext",
+        "moduleResolution": "node"
+        
+    },
+    
+    "references": [
+        {
+            "path": "../second"
+        }
+    ]
+}
