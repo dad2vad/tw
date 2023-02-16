@@ -1,0 +1,15 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@2.2.0/schema.json",
+  "changelog": [
+    "@changesets/changelog-github",
+    { "repo": "sannajammeh/tw-classed" }
+  ],
+
+  "commit": false,
+  "fixed": [],
+  "linked": [["@tw-classed/react", "@tw-classed/solid", "@tw-classed/core"]],
+  "access": "public",
+  "baseBranch": "master",
+  "updateInternalDependencies": "patch",
+  "ignore": ["benchmark"]
+}

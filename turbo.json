@@ -1,0 +1,30 @@
+{
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**"]
+    },
+    "postbuild": {
+      "dependsOn": ["build"],
+      "outputs": ["public/robots.txt", "public/sitemap*.xml"]
+    },
+    "lint": {
+      "outputs": []
+    },
+    "typecheck": {
+      "outputs": ["tsconfig.test.tsbuildinfo"]
+    },
+    "test": {
+      "dependsOn": ["^build", "^typecheck"],
+      "outputs": ["coverage/**", "dist/**", ".next/**"]
+    },
+    "test:coverage": {
+      "dependsOn": ["^test"],
+      "outputs": ["coverage/**"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}
